@@ -30,6 +30,7 @@
     "config": "^3.0.1",
     "express": "^4.16.4",
     "mongoose": "^5.4.11",
+    "morgan": "^1.9.1",
     "use-strict": "^1.0.1"
   },
   "devDependencies": {
@@ -46,6 +47,9 @@
     "pre-push": "npm run lint"
   },
   "lint-staged": {
-    "*.js": ["prettier --write", "git add"]
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
