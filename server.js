@@ -14,8 +14,6 @@ const bodyParser = require('body-parser');
 const port = process.env.PORT || 8000;
 const configDb = require('./src/config/database');
 
-mongoose.Promise = global.Promise;
-
 // Aqui a gente faz a chamada da 'url' da conexão da base de dados da nossa aplicação:
 mongoose.connect(configDb.local.localUrl, { useNewUrlParser: true });
 
