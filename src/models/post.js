@@ -17,3 +17,19 @@
  */
 
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+
+const PostSchema = new Schema(
+  {
+    titulo: { type: String, require: true },
+    nome: { type: String, required: true },
+    email: { type: String, required: true },
+    conteudo: { type: String, required: true },
+  },
+  {
+    versionKey: false,
+  },
+);
+
+// Exportando o meu Schema para poder ser usada:
+module.exports = mongoose.model('post', PostSchema);
