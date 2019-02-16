@@ -9,21 +9,15 @@ const express = require('express');
 
 const app = express();
 const mongoose = require('mongoose');
-const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
 const port = process.env.PORT || 8000;
-// const configDb = require('./src/config/database');
-// const routes = require('./src/routes/routes');
+const configDb = require('./src/config/database');
 
-/* mongoose.Promise = global.Promise;
+mongoose.Promise = global.Promise;
 
-const db = mongoose.connection;
-db.on('Error', console.error.bind(console, 'Erro ao realizar a conexão com a Base de Dados...: '));
-
-if (configDb.util.getEnv('NODE_ENV') !== 'Test') {
-  app.use(morgan('combined'));
-} */
+// Aqui a gente faz a chamada da 'url' da conexão da base de dados da nossa aplicação:
+mongoose.connect(configDb.local.localUrl, { useNewUrlParser: true });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
