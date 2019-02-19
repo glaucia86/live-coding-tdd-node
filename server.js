@@ -22,7 +22,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.text());
 app.use(bodyParser.json({ type: 'application/json' }));
 
-app.get('/', (req, res) => res.json({ message: 'Sejam Bem-Vindos(as) a API: Live Coding - Glaucia Lemos!' }));
+// ROTA DEFAULT: http://localhost:8000/v1
+app.get('/v1', (req, res) => res.json({ message: 'Sejam Bem-Vindos(as) a API: Live Coding - Glaucia Lemos!' }));
 
 app.listen(port);
 console.log(`Aplicação executando na porta...: ${port}`);
