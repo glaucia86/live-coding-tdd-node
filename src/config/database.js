@@ -8,6 +8,6 @@
 module.exports = {
   local:
   {
-    localUrl: 'mongodb://localhost/tdd-api-post',
+    localUrl: 'mongodb://localhost/tdd-api-live-coding',
   },
 };

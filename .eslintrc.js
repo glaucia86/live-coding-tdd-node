@@ -8,6 +8,9 @@ module.exports = {
       "no-unused-vars": "off",
       "max-len": 0,
       "prefer-destructuring": "off",
-      "import/newline-after-import": "off"
+      "import/newline-after-import": "off",
+      "no-unused-expressions": "off",
+      "no-undef": "off",
+      "object-shorthand": "off"
     }
 };

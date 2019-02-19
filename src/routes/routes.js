@@ -16,7 +16,7 @@ router.get('/posts/', posts.findAll);
 router.get('/posts/:id', posts.findOne);
 
 // POST: http://localhost:8000/v1/posts
-router.post('/posts', posts.createOne);
+router.post('/posts', posts.createPost);
 
 // PUT: http://localhost:8000/v1/posts/:id
 router.put('/posts/:id', posts.updateOne);
