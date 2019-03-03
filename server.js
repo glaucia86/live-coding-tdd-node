@@ -6,26 +6,32 @@
  */
 
 const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const morgan = require('morgan');
 
 const app = express();
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+const dbConfig = require('./config/database');
 
-const port = process.env.PORT || 8000;
-const configDb = require('./src/config/database');
+mongoose.connect(dbConfig.url, { useNewUrlParser: true }).then(() => {
+  console.log('Base de dados conectado com Sucesso!');
+}).catch((err) => {
+  console.log('Não conseguimos conectar com a Base de Dados. Fechando agora...:', err);
+});
 
-// Aqui a gente faz a chamada da 'url' da conexão da base de dados da nossa aplicação:
-mongoose.connect(configDb.local.localUrl, { useNewUrlParser: true });
-
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.text());
-app.use(bodyParser.json({ type: 'application/json' }));
+app.use(bodyParser.json());
 
-// ROTA DEFAULT: http://localhost:8000/v1
-app.get('/v1', (req, res) => res.json({ message: 'Sejam Bem-Vindos(as) a API: Live Coding - Glaucia Lemos!' }));
+// Rota default:
+app.get('/', (req, res) => {
+  res.json({ message: 'Sejam Bem-Vindos(as) a API TDD - Glaucia Lemos' });
+});
 
-app.listen(port);
-console.log(`Aplicação executando na porta...: ${port}`);
+// Aqui estaremos fazendo a chamada das Rotas da api 'Post'
+// require('./app/routes/routes')(app);
+
+app.listen(8000, () => {
+  console.log('Aplicação sendo executada na porta 8000');
+});
 
 module.exports = app;
