@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 
 // Rota default:
 app.get('/', (req, res) => {
-  res.json({ message: 'Sejam Bem-Vindos(as) a API TDD - Glaucia Lemos' });
+  res.json({ message: 'Sejam Bem-Vindos(as) a API TDD Node.js com Mocha & Chai - Glaucia Lemos' });
 });
 
 // Aqui estaremos fazendo a chamada das Rotas da api 'Post'
