@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 });
 
 // Aqui estaremos fazendo a chamada das Rotas da api 'Post'
-// require('./app/routes/routes')(app);
+require('./app/routes/routes')(app);
 
 app.listen(8000, () => {
   console.log('Aplicação sendo executada na porta 8000');
