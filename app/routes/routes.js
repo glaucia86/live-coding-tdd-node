@@ -12,7 +12,7 @@ module.exports = (app) => {
   app.post('/posts', posts.create);
 
   // Selecionar todas as 'Postagens': GET - http://locahost:8000/posts/
-  app.get('/posts', posts.findAll);
+  /* app.get('/posts', posts.findAll);
 
   // Selecionar 'Postagem' por Id: GET - http://locahost:8000/posts/:id
   app.get('/posts/:id', posts.findOne);
@@ -21,5 +21,5 @@ module.exports = (app) => {
   app.put('/posts/:id', posts.updateOne);
 
   // Excluir 'Postagem' por Id: PUT - http://locahost:8000/posts/:id
-  app.delete('/posts/:id', posts.deleteOne);
+  app.delete('/posts/:id', posts.deleteOne); */
 };
