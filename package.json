@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "dev": "nodemon",
-    "lint": "eslint --ext .js -f ./node_modules/eslint-formatter-friendly . --fix",
+    "lint": "eslint --ext .js -f ./node_modules/eslint-friendly-formatter . --fix",
     "test": "mocha --timeout 10000"
   },
   "repository": {
@@ -30,6 +30,7 @@
     "body-parser": "^1.18.3",
     "config": "^3.0.1",
     "eslint-friendly-formatter": "^4.0.1",
+    "prettier": "^1.16.4",
     "express": "^4.16.4",
     "mongoose": "^5.4.11",
     "morgan": "^1.9.1"
