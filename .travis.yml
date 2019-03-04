@@ -9,9 +9,6 @@ install:
 services:
   - mongodb
 
-before_script:
-  - sudo service mongodb stop
-
 script:
   - npm run lint
   - npm run test
