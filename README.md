@@ -61,17 +61,17 @@ obs.: api de exemplo através do site: https://jsonplaceholder.typicode.com
 ROTA                      |     HTTP(Verbo)   |      Descrição                |      Links (via PostMan)                 
 -------------------------  | ----------------- | ---------------------         | ---------------------------------------- 
 /posts                     |       GET         | Selecionar Todos os Posts     | GET:    http://localhost:8000/posts      
-/post                      |       POST        | Criar um Post                 | POST:   http://localhost:8000/post
-/post/:post_id             |       GET         | Selecionar Por Id             | GET:    http://localhost:8000/post/:id
-/post/:post_id/            |       PUT         | Atualizar Por Id              | PUT:    http://localhost:8000/post/:id   
-/post/:post_id/            |       DELETE      | Excluir Por Id                | DELETE: http://localhost:8000/post/:id
+/posts                      |       POST        | Criar um Post                 | POST:   http://localhost:8000/posts
+/posts/:post_id             |       GET         | Selecionar Por Id             | GET:    http://localhost:8000/posts/:id
+/posts/:post_id/            |       PUT         | Atualizar Por Id              | PUT:    http://localhost:8000/posts/:id   
+/posts/:post_id/            |       DELETE      | Excluir Por Id                | DELETE: http://localhost:8000/posts/:id
 
 ### Executando a Aplicação 💨
 
 Bom, agora na mesma tela do cmd, basta iniciar o server para o projeto ser executado localmente.
 
 ```
-node server.js
+nodemon
 ```
 
 Depois, você precisará abrir um outro terminal na sua máquina e iniciar o MongoDb. Basta digitar na tela do cmd o seguinte comando:
@@ -82,19 +82,16 @@ mongod
 
 Caso o MongoDb esteja devidamente instalado em sua máquina, ele iniciará o serviço mostrando que a port 27017 foi iniciada.
 
-Agora, abre a página da aplicação em `http://localhost:8000/api`. E pronto a aplicação será executada de maneira local na sua máquina.   
+Agora, abre a página da aplicação em `http://localhost:8000`. E pronto a aplicação será executada de maneira local na sua máquina.   
 
 ## Executando os Testes: ⭐️
 
 Basta executar o comando: **(dentro da pasta src)**
 
 ```
-> npm test
+> npm run test
 
 ```
-
-Fiquem à vontade em usar ou até mesmo testar ambas as conexões!! :)  
-Quaisquer dúvidas ao testar as api's via postman é só falar. Já disponibilizei dois cadastrados no MLab (para que possam testar o 'Listar')
 
 **sempre no formato: x-wwwform-urlencoded**
 
