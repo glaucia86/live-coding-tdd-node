@@ -19,6 +19,14 @@
 
 Nesse live coding, que será divido em 3 ou 4 partes, estaremos desenvolvendo uma api Back-End RestFul CRUD com Node.js integrado com o MongoDb e com realização de Testes de Unidade usando o Mocha & Chai. E no final de desenvolvermos a aplicação, estaremos fazendo a integração da api no site do Travis para realizarmos o C.I para sabermos se de fato os commits que estamos enviando para o Github estão dentro do padrão e passando no C.I.
 
+## Vídeos da Série:
+
+- [Parte - I](https://youtu.be/JhXyr-fNHGs)
+- [Parte - II](https://youtu.be/1Cr7l3J4m6g)
+- [Parte - III](https://youtu.be/LwXAFCZq41c)
+- [Parte - IV](https://youtu.be/p2QisBfNXMo)
+- [Parte - V](https://youtu.be/MwVCklHp8C8)
+
 ## Executar Localmente o Projeto 🔥
 
 Caso você deseja executar o projeto na sua máquina local, basta seguir os passos abaixo:
