@@ -84,7 +84,7 @@ exports.updateOne = (req, res) => {
 
 // Método responsável por excluir um determinado 'Post' por Id: DELETE - http://locahost:8000/posts/:id
 exports.deleteOne = (req, res) => {
-  Post.findOneAndRemove(req.params.id)
+  Post.findOneAndDelete(req.params.id)
     .then((post) => {
       if (!post) {
         return res.status(400).send({ message: `Não encontramos o Id do Post...: ${req.params.id}` });
