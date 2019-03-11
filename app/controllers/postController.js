@@ -35,6 +35,22 @@ exports.findAll = (req, res) => {
   Post.find().then((posts) => {
     res.status(200).send(posts);
   }).catch((err) => {
-    res.status(400).send({ message: err.message || 'Ocorreu um erro ao tentar selecionar todos os Posts' });
+    res.status(500).send({ message: err.message || 'Ocorreu um erro ao tentar selecionar todos os Posts' });
   });
+};
+
+// Método responsável por selecionar um determinado 'Post' por Id: GET - http://locahost:8000/posts/:id
+exports.findOne = (req, res) => {
+  Post.findById(req.params.id)
+    .then((post) => {
+      if (!post) {
+        return res.status(400).send({ messagem: `Post não encontrado com o Id...: ${req.params.id}` });
+      }
+      res.status(200).send(post);
+    }).catch((err) => {
+      if (err.kind === 'ObjectId') {
+        return res.status(400).send({ messagem: `Post não encontrado com o Id...: ${req.params.id}` });
+      }
+      return res.status(500).send({ message: err.message || `Error ao retornar o Post do Id...: ${req.params.id}` });
+    });
 };

@@ -18,21 +18,21 @@ chai.use(chaiHttp);
 
 // Bloco de Código responsável por realizar os testes da api:
 describe('Posts', () => {
-  beforeEach((done) => {
+  /* beforeEach((done) => {
     // Aqui estará 'limpando' a base de dados sempre quando formos executar os testes.
     Post.deleteOne({}, (err) => {
       done();
     });
-  });
+  }); */
 
-  // ==> Testando a rota: /POST:
+  // ==> Testando a rota: /POST
   describe('/POST post', () => {
     it('Deve Criar um Novo Post', (done) => {
       const post = {
-        titulo: 'Transferência Milionária',
-        nome: 'Fulano da Silva',
-        email: 'teste_2@gmail.com',
-        conteudo: 'Neymar deve fazer exames na quinta em Paris e ser apresentado na sexta.',
+        titulo: 'Thiago Neves fora da Libertadores',
+        nome: 'Fulano de Souza',
+        email: 'teste_3@gmail.com',
+        conteudo: 'Thiago Neves se vê fora de partida do Cruzeiro pela Libertadores na quarta: "Não estou pronto".',
       };
 
       chai.request('http://localhost:8000')
@@ -45,7 +45,7 @@ describe('Posts', () => {
     });
   });
 
-  // ==> Testando a rota: /GET:
+  // ==> Testando a rota: /GET
   describe('/GET post', () => {
     it('Deve Selecionar todos os "Posts"', (done) => {
       chai.request('http://localhost:8000')
@@ -59,6 +59,34 @@ describe('Posts', () => {
 
           done();
         });
+    });
+  });
+
+  // ==> Testando a rota: /GET/:id
+  describe('/GET post', () => {
+    it('Deve Retornar um "Post dado um determinado "Id"', (done) => {
+      const post = new Post({
+        titulo: 'Transferência Milionária',
+        nome: 'Fulano da Silva',
+        email: 'teste_2@gmail.com',
+        conteudo: 'Neymar deve fazer exames na quinta em Paris e ser apresentado na sexta.',
+      });
+
+      post.save((err, post) => {
+        chai.request('http://localhost:8000')
+          .get(`/posts/${post.id}`)
+          .send(post)
+          .end((err, res) => {
+            res.should.be.a('object');
+            res.body.should.have.property('titulo');
+            res.body.should.have.property('nome');
+            res.body.should.have.property('email');
+            res.body.should.have.property('conteudo');
+            res.body.should.have.property('_id').eql(post.id);
+
+            done();
+          });
+      });
     });
   });
 });

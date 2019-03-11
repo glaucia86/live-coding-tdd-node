@@ -15,10 +15,10 @@ module.exports = (app) => {
   app.get('/posts', posts.findAll);
 
   // Selecionar 'Postagem' por Id: GET - http://locahost:8000/posts/:id
-  /* app.get('/posts/:id', posts.findOne);
+  app.get('/posts/:id', posts.findOne);
 
   // Atualizar 'Postagem' por Id: PUT - http://locahost:8000/posts/:id
-  app.put('/posts/:id', posts.updateOne);
+  /* app.put('/posts/:id', posts.updateOne);
 
   // Excluir 'Postagem' por Id: PUT - http://locahost:8000/posts/:id
   app.delete('/posts/:id', posts.deleteOne); */
