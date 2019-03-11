@@ -44,4 +44,21 @@ describe('Posts', () => {
         });
     });
   });
+
+  // ==> Testando a rota: /GET:
+  describe('/GET post', () => {
+    it('Deve Selecionar todos os "Posts"', (done) => {
+      chai.request('http://localhost:8000')
+        .get('/posts')
+        .end((err, res) => {
+          // Se a rota estiver selecionando todos os "Posts", então deverá retornar o status 200:
+          res.should.have.status(200);
+
+          // Se o retorno for 200/OK, devo retornar um array com todos os "Posts" criados (contidos na base de dados)
+          res.body.should.be.a('array');
+
+          done();
+        });
+    });
+  });
 });

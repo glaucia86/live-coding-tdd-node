@@ -29,3 +29,12 @@ exports.create = (req, res) => {
       res.status(500).send({ message: err.message || 'Ocorreu um erro ao tentar ao tentar criar um Post' });
     });
 };
+
+// Método responsável por selecionar todos os 'Posts da Base de Dados: GET - http://locahost:8000/posts/
+exports.findAll = (req, res) => {
+  Post.find().then((posts) => {
+    res.status(200).send(posts);
+  }).catch((err) => {
+    res.status(400).send({ message: err.message || 'Ocorreu um erro ao tentar selecionar todos os Posts' });
+  });
+};

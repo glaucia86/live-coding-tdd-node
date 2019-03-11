@@ -12,10 +12,10 @@ module.exports = (app) => {
   app.post('/posts', posts.create);
 
   // Selecionar todas as 'Postagens': GET - http://locahost:8000/posts/
-  /* app.get('/posts', posts.findAll);
+  app.get('/posts', posts.findAll);
 
   // Selecionar 'Postagem' por Id: GET - http://locahost:8000/posts/:id
-  app.get('/posts/:id', posts.findOne);
+  /* app.get('/posts/:id', posts.findOne);
 
   // Atualizar 'Postagem' por Id: PUT - http://locahost:8000/posts/:id
   app.put('/posts/:id', posts.updateOne);
