@@ -18,12 +18,12 @@ chai.use(chaiHttp);
 
 // Bloco de Código responsável por realizar os testes da api:
 describe('Posts', () => {
-  /* beforeEach((done) => {
+  beforeEach((done) => {
     // Aqui estará 'limpando' a base de dados sempre quando formos executar os testes.
     Post.deleteOne({}, (err) => {
       done();
     });
-  }); */
+  });
 
   // ==> Testando a rota: /POST
   describe('/POST post', () => {
@@ -83,6 +83,60 @@ describe('Posts', () => {
             res.body.should.have.property('email');
             res.body.should.have.property('conteudo');
             res.body.should.have.property('_id').eql(post.id);
+
+            done();
+          });
+      });
+    });
+  });
+
+  // ==> Testando a rota: /PUT/:id
+  describe('/PUT/:id post', () => {
+    it('Deve Atualizar um "Post" dado um determinando "Id"', (done) => {
+      const post = new Post({
+        titulo: 'Transferência Milionária',
+        nome: 'Fulano da Silva', // vou alterar esse campo aqui
+        email: 'teste@gmail.com',
+        conteudo: 'Neymar deve fazer exames na quinta em Paris e ser apresentado na sexta',
+      });
+
+      post.save((err, post) => {
+        chai.request('http://localhost:8000')
+          .put(`/posts/${post.id}`)
+          .send({
+            titulo: 'Transferência Milionária',
+            nome: 'Glaucia Lemos', // alterando esse campo aqui!!!!
+            email: 'teste@gmail.com',
+            conteudo: 'Neymar deve fazer exames na quinta em Paris e ser apresentado na sexta',
+          })
+          .end((err, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a('object');
+            res.body.post.should.have.property('nome').eql('Glaucia Lemos');
+
+            done();
+          });
+      });
+    });
+  });
+
+  // ==> Testando a rota /DELETE/:id
+  describe('/DELETE/:id', () => {
+    it('Deve Excluir um "Post" dado um determinado "Id"', (done) => {
+      const post = new Post({
+        titulo: 'Transferência Milionária',
+        nome: 'Fulano da Silva',
+        email: 'teste@gmail.com',
+        conteudo: 'Neymar deve fazer exames na quinta em Paris e ser apresentado na sexta',
+      });
+
+      post.save((err, post) => {
+        chai.request('http://localhost:8000')
+          .delete(`/posts/${post.id}`)
+          .end((error, res) => {
+            res.should.have.status(200);
+            res.body.should.be.a('object');
+            res.body.should.have.property('message').eql('Post Excluído com Sucesso!');
 
             done();
           });

@@ -18,8 +18,8 @@ module.exports = (app) => {
   app.get('/posts/:id', posts.findOne);
 
   // Atualizar 'Postagem' por Id: PUT - http://locahost:8000/posts/:id
-  /* app.put('/posts/:id', posts.updateOne);
+  app.put('/posts/:id', posts.updateOne);
 
   // Excluir 'Postagem' por Id: PUT - http://locahost:8000/posts/:id
-  app.delete('/posts/:id', posts.deleteOne); */
+  app.delete('/posts/:id', posts.deleteOne);
 };

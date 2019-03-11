@@ -54,3 +54,48 @@ exports.findOne = (req, res) => {
       return res.status(500).send({ message: err.message || `Error ao retornar o Post do Id...: ${req.params.id}` });
     });
 };
+
+// Método responsável por atualizar um determinado 'Post' por Id: PUT - http://locahost:8000/posts/:id
+exports.updateOne = (req, res) => {
+  if (!req.body.titulo && !req.body.nome && !req.body.email && !req.body.conteudo) {
+    return res.status(400).send({ message: 'O Post não pode estar vazio' });
+  }
+
+  // Depois de encontrar um determinado 'ID' , então posso realizar a atualização do 'body'
+  Post.findOneAndUpdate(req.params.id, {
+    titulo: req.body.titulo,
+    nome: req.body.nome,
+    email: req.body.email,
+    conteudo: req.body.conteudo,
+  }, { new: true })
+    .then((post) => {
+      if (!post) {
+        return res.status(400).send({ message: `Não encontrado o Id do Post...: ${req.params.id}` });
+      }
+      res.status(200).send({ message: 'Post Atualizado com Sucesso', post });
+    }).catch((err) => {
+      if (err.kind === 'ObjectId') {
+        return res.status(400).send({ message: err.message || `Não encontramos o Id do Post...: ${req.params.id}` });
+      }
+
+      return res.status(500).send({ message: `Erro ao atualizar o Post com Id...:${req.params.id}` });
+    });
+};
+
+// Método responsável por excluir um determinado 'Post' por Id: DELETE - http://locahost:8000/posts/:id
+exports.deleteOne = (req, res) => {
+  Post.findOneAndRemove(req.params.id)
+    .then((post) => {
+      if (!post) {
+        return res.status(400).send({ message: `Não encontramos o Id do Post...: ${req.params.id}` });
+      }
+
+      res.status(200).send({ message: 'Post Excluído com Sucesso!' });
+    }).catch((err) => {
+      if (err.kind === 'ObjectId') {
+        return res.status(404).send({ message: `Não encontramos o Id do Post...: ${req.params.id}` });
+      }
+
+      return res.stsatus(500).send({ message: err.message || `Não conseguimos excluir o id do Post...: ${req.params.id}` });
+    });
+};
