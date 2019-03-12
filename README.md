@@ -21,11 +21,11 @@ Nesse live coding, que será divido em 3 ou 4 partes, estaremos desenvolvendo um
 
 ## Vídeos da Série:
 
-- [Parte - I](https://youtu.be/JhXyr-fNHGs)
-- [Parte - II](https://youtu.be/1Cr7l3J4m6g)
-- [Parte - III](https://youtu.be/LwXAFCZq41c)
-- [Parte - IV](https://youtu.be/p2QisBfNXMo)
-- [Parte - V](https://youtu.be/MwVCklHp8C8)
+- [TDD com Node.js Mocha & Chai - Parte I](https://youtu.be/JhXyr-fNHGs)
+- [TDD com Node.js Mocha & Chai - Parte II](https://youtu.be/1Cr7l3J4m6g)
+- [TDD com Node.js Mocha & Chai - Parte III](https://youtu.be/LwXAFCZq41c)
+- [TDD com Node.js Mocha & Chai - Parte IV](https://youtu.be/p2QisBfNXMo)
+- [TDD com Node.js Mocha & Chai - Parte V](https://youtu.be/MwVCklHp8C8)
 
 ## Executar Localmente o Projeto 🔥
 
