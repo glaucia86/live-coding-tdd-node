@@ -15,7 +15,7 @@
 - **[MongoDb Community Server](https://www.mongodb.com/download-center/community)**
 - **[Cadastro no Site Travis-ci.org](https://travis-ci.org/)**
 
-## O que eu vou aprender?! 📘
+## O que eu vou Aprender?! 📘
 
 Nesse live coding, que será divido em 3 ou 4 partes, estaremos desenvolvendo uma api Back-End RestFul CRUD com Node.js integrado com o MongoDb e com realização de Testes de Unidade usando o Mocha & Chai. E no final de desenvolvermos a aplicação, estaremos fazendo a integração da api no site do Travis para realizarmos o C.I para sabermos se de fato os commits que estamos enviando para o Github estão dentro do padrão e passando no C.I.
 
