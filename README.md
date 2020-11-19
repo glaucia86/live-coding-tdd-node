@@ -4,7 +4,7 @@
 
 ## Recursos Utilizados no Desenvolvimento da Aplicação: 🚀
 
-- **[Visual Studio Code](https://code.visualstudio.com/)**
+- **[Visual Studio Code](https://code.visualstudio.com/?WT.mc_id=javascript-0000-gllemos)**
 - **[Node.js](https://nodejs.org/en/) ~ v.10**
 - Pacotes:
     - **[Mochajs](https://mochajs.org/)** 
